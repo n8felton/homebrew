@@ -19,15 +19,12 @@ class Fail2ban < Formula
     end
 
     # Replace hardcoded paths
-    inreplace "fail2ban-client", "/usr/share/fail2ban", libexec
-    inreplace "fail2ban-server", "/usr/share/fail2ban", libexec
-    inreplace "fail2ban-regex", "/usr/share/fail2ban", libexec
+    inreplace "bin/fail2ban-client", "/etc", etc
 
-    inreplace "fail2ban-client", "/etc", etc
-    inreplace "fail2ban-regex", "/etc", etc
+    inreplace "bin/fail2ban-server", "/var/run", (var/"run")
 
-    inreplace "fail2ban-server", "/var", var
     inreplace "config/fail2ban.conf", "/var/run", (var/"run")
+    inreplace "config/fail2ban.conf", "/var/lib", (var/"lib")
 
     inreplace "setup.py", "/usr/share/doc/fail2ban", (libexec/"doc")
 
