@@ -2,8 +2,8 @@ require "formula"
 
 class Fail2ban < Formula
   homepage "http://www.fail2ban.org/"
-  url "https://github.com/fail2ban/fail2ban/archive/0.8.14.tar.gz"
-  sha1 "fb104335acf9d71552a4a1cec06fac1187846867"
+  url "https://github.com/fail2ban/fail2ban/archive/0.9.1.tar.gz"
+  sha1 "4214a0e291f29158d44dccc659c81cbc97e2f42e"
 
   bottle do
     sha1 "ab90e39f9669b929dd4ec43b9f736a1ab1cac652" => :mavericks
