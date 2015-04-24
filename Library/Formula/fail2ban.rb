@@ -27,6 +27,10 @@ class Fail2ban < Formula
     inreplace "config/fail2ban.conf", "/var/lib", (var/"lib")
 
     inreplace "setup.py", "/usr/share/doc/fail2ban", (libexec/"doc")
+    
+    man.mkpath
+    man1.install "man/fail2ban-client.1", "man/fail2ban-regex.1", "man/fail2ban-server.1", "man/fail2ban.1"
+    man5.install "man/jail.conf.5"
 
     system "python", "setup.py", "install", "--prefix=#{prefix}", "--install-lib=#{libexec}"
   end
