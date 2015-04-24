@@ -32,7 +32,10 @@ class Fail2ban < Formula
     man1.install "man/fail2ban-client.1", "man/fail2ban-regex.1", "man/fail2ban-server.1", "man/fail2ban.1"
     man5.install "man/jail.conf.5"
 
-    system "python", "setup.py", "install", "--prefix=#{prefix}", "--install-lib=#{libexec}"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
+    system "python", *Language::Python.setup_install_args(libexec)
+    bin.install Dir[libexec/"bin/*"]
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   plist_options :startup => true
